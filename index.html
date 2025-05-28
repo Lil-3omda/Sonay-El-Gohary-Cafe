@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>كافيه سوناي الجوهري </title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Cairo', Arial, sans-serif;
+            line-height: 1.6;
+            color: #2c1810;
+            background: #f8f6f0;
+            direction: rtl;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        nav {
+            background: #8b4513;
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #f4e4c1;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: #f4e4c1;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            background: rgba(244, 228, 193, 0.2);
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(rgba(139, 69, 19, 0.8), rgba(139, 69, 19, 0.6)), #d4af37;
+            padding: 3rem 0;
+            text-align: center;
+            color: white;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+
+        /* Menu Section */
+        .menu-section {
+            padding: 3rem 0;
+            background: white;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #8b4513;
+            margin-bottom: 2rem;
+            font-weight: 700;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .menu-category {
+            background: #fefefe;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-right: 4px solid #d4af37;
+        }
+
+        .category-title {
+            font-size: 1.5rem;
+            color: #8b4513;
+            margin-bottom: 1rem;
+            text-align: center;
+            font-weight: 600;
+            background: #f8f6f0;
+            padding: 0.5rem;
+            border-radius: 5px;
+        }
+
+        .menu-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.8rem 0;
+            border-bottom: 1px dotted #ddd;
+        }
+
+        .menu-item:last-child {
+            border-bottom: none;
+        }
+
+        .item-info h3 {
+            font-size: 1.1rem;
+            color: #2c1810;
+            margin-bottom: 0.2rem;
+            font-weight: 600;
+        }
+
+        .item-description {
+            font-size: 0.85rem;
+            color: #666;
+        }
+
+        .item-price {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #8b4513;
+            background: #f8f6f0;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            border: 2px solid #d4af37;
+        }
+
+        /* Popular Items */
+        .popular-badge {
+            background: #e74c3c;
+            color: white;
+            font-size: 0.7rem;
+            padding: 0.2rem 0.5rem;
+            border-radius: 10px;
+            margin-right: 0.5rem;
+        }
+
+        /* Footer */
+        footer {
+            background: #2c1810;
+            color: #f4e4c1;
+            padding: 2rem 0 1rem;
+            margin-top: 3rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-section h3 {
+            color: #d4af37;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .footer-section p {
+            line-height: 1.8;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid #5a4037;
+            font-size: 0.9rem;
+        }
+
+        /* Special Offers */
+        .special-offer {
+            background: linear-gradient(45deg, #e74c3c, #c0392b);
+            color: white;
+            padding: 1rem;
+            margin: 2rem 0;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: 600;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+            100% { transform: scale(1); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .menu-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .menu-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
+            
+            .item-price {
+                align-self: flex-end;
+            }
+        }
+
+        /* Working Hours Banner */
+        .hours-banner {
+            background: #27ae60;
+            color: white;
+            text-align: center;
+            padding: 0.5rem;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <!-- Working Hours Banner -->
+    <div class="hours-banner">
+        مفتوح يومياً من 6 صباحاً حتى 2 بعد منتصف الليل
+    </div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="nav-container">
+                <div class="logo">قهوة سوناي الجوهري</div>
+                <ul class="nav-links">
+                    <li><a href="#home">الرئيسية</a></li>
+                    <li><a href="#menu">المشروبات</a></li>
+                    <li><a href="#about">عن القهوة</a></li>
+                    <li><a href="#contact">اتصل بنا</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <section class="header" id="home">
+        <div class="container">
+            <h1>قهوة سوناي الجوهري</h1>
+            <p>- الكافيه رقم واحد في طنطا - طعم أصيل وجودة عالية</p>
+        </div>
+    </section>
+
+    <!-- Special Offer -->
+    <div class="container">
+        <div class="special-offer">
+            🔥 عرض خاص: اشرب 10 أكواب واحصل على كوب مجاناً! 🔥
+        </div>
+    </div>
+
+    <!-- Menu Section -->
+    <section class="menu-section" id="menu">
+        <div class="container">
+            <h2 class="section-title">قائمة المشروبات</h2>
+            
+            <div class="menu-grid">
+                <!-- Hot Drinks -->
+                <div class="menu-category">
+                    <h3 class="category-title">☕ المشروبات الساخنة</h3>
+                    
+                    <div class="menu-item">
+                        <div class="item-info">
+                            <h3><span class="popular-badge">الأكثر طلباً</span>شاي كشري</h3>
+                            <p class="item-description">شاي أحمر عادي بالسكر</p>
+                        </div>
+                        <span class="item-price">5 جنيه</span>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="item-info">
+                            <h3>شاي بالنعناع</h3>
+                            <p class="item-description">شاي أحمر مع نعناع طازج</p>
+                        </div>
+                        <span class="item-price">7 جنيه</span>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="item-info">
+                            <h3><span class="popular-badge">مميز</span>قهوة تركي</h3>
+                            <p class="item-description">قهوة تركية أصلية محضرة على الفحم</p>
+                        </div>
+                        <span class="item-price">12 جنيه</span>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="item-info">
+                            <h3>نسكافيه</h3>
+                            <p class="item-description">نسكافيه بالحليب</p>
+                        </div>
+                        <span class="item-price">8 جنيه</span>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="item-info">
+                            <h3>سحلب</h3>
+                            <p class="item-description">مشروب السحلب بالحليب والقرفة</p>
+                        </div>
+                        <span class="item-price">15 جنيه</span>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="item-info">
+                            <h3>شاي أخضر</h3>
+                            <p class="item-description">شاي أخضر صيني أصلي</p>
+                        </div>
+                        <span class="item-price">8 جنيه</span>
+                    </div>
+                </div>
+
+                <!-- Cold Drinks -->
+                <div class="menu-category">
+                    <h3 class="category-title">🧊 المشروبات الباردة</h3>
+                    
+                    <div class="menu-item">
+                        <div class="item-info">
+                            <h3><span class="popular-badge">الأكثر طلباً</span>شاي مثلج</h3>
+                            <p class="item-description">شاي بارد مع الثلج والليمون</p>
+                        </div>
+                        <span class="item-price">8 جنيه</span>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="item-info">
+                            <h3>كركديه</h3>
+                            <p class="item-description">مشروب الكركديه البارد</p>
+                        </div>
+                        <span class="item-price">10 جنيه</span>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="item-info">
+                            <h3>عصير قصب</h3>
+                            <p class="item-description">عصير قصب طازج مع الليمون</p>
+                        </div>
+                        <span class="item-price">12 جنيه</span>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="item-info">
+                            <h3>ليمونادة</h3>
+                            <p class="item-description">عصير ليمون طازج بالنعناع</p>
+                        </div>
+                        <span class="item-price">10 جنيه</span>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="item-info">
+                            <h3>قهوة مثلجة</h3>
+                            <p class="item-description">قهوة باردة مع الثلج والحليب</p>
+                        </div>
+                        <span class="item-price">15 جنيه</span>
+                    </div>
+                </div>
+
+                <!-- Fresh Juices -->
+                <div class="menu-category">
+                    <h3 class="category-title">🍊 العصائر الطازجة</h3>
+                    
+                    <div class="menu-item">
+                        <div class="item-info">
+                            <h3><span class="popular-badge">طازج</span>عصير برتقال</h3>
+                            <p class="item-description">برتقال مصري طازج معصور</p>
+                        </div>
+                        <span class="item-price">15 جنيه</span>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="item-info">
+                            <h3>عصير مانجو</h3>
+                            <p class="item-description">مانجو طازج بالحليب</p>
+                        </div>
+                        <span class="item-price">18 جنيه</span>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="item-info">
+                            <h3>عصير جوافة</h3>
+                            <p class="item-description">جوافة طازجة بالحليب</p>
+                        </div>
+                        <span class="item-price">16 جنيه</span>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="item-info">
+                            <h3>عصير موز</h3>
+                            <p class="item-description">موز بالحليب والعسل</p>
+                        </div>
+                        <span class="item-price">14 جنيه</span>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="item-info">
+                            <h3>كوكتيل فواكه</h3>
+                            <p class="item-description">مزيج فواكه الموسم</p>
+                        </div>
+                        <span class="item-price">20 جنيه</span>
+                    </div>
+                </div>
+
+                <!-- Soft Drinks & Others -->
+                <div class="menu-category">
+                    <h3 class="category-title">🥤 المرطبات والمشروبات الأخرى</h3>
+                    
+                    <div class="menu-item">
+                        <div class="item-info">
+                            <h3>كوكاكولا</h3>
+                            <p class="item-description">علبة كوكاكولا باردة</p>
+                        </div>
+                        <span class="item-price">10 جنيه</span>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="item-info">
+                            <h3>سفن أب</h3>
+                            <p class="item-description">علبة سفن أب باردة</p>
+                        </div>
+                        <span class="item-price">10 جنيه</span>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="item-info">
+                            <h3>مياه معدنية</h3>
+                            <p class="item-description">زجاجة مياه معدنية باردة</p>
+                        </div>
+                        <span class="item-price">5 جنيه</span>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="item-info">
+                            <h3>ريد بول</h3>
+                            <p class="item-description">مشروب الطاقة ريد بول</p>
+                        </div>
+                        <span class="item-price">25 جنيه</span>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="item-info">
+                            <h3><span class="popular-badge">مميز</span>تمر هندي</h3>
+                            <p class="item-description">مشروب التمر هندي البارد</p>
+                        </div>
+                        <span class="item-price">12 جنيه</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>عن قهوة سوناي الجوهري</h3>
+                    <p>أحد أعرق المقاهي الشعبية في طنطا، نقدم أجود أنواع الشاي والقهوة والعصائر الطازجة في جو شعبي أصيل.</p>
+                    <p>نفتخر بخدمة الزبائن منذ سنوات طويلة بأفضل جودة وأرخص الأسعار.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>معلومات التواصل</h3>
+                    <p>📍  سبرباي - طنطا - الغربية - مصر </p>
+                    <p>📞 040-xxxxxxx</p>
+                    <p>📱 01xxxxxxxxx</p>
+                    <p>نقبل التوصيل داخل طنطا</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>مواعيد العمل</h3>
+                    <p>السبت - الخميس: 6:00 ص - 2:00 ص</p>
+                    <p>الجمعة: 8:00 ص - 2:00 ص</p>
+                    <p>متاح طوال أيام الأسبوع</p>
+                    <p>🚗 خدمة التوصيل متاحة</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 قهوة سوناي الجوهري - جميع الحقوق محفوظة | - الكافيه رقم واحد في طنطا</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll effect to navigation
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.style.background = 'rgba(139, 69, 19, 0.95)';
+                nav.style.backdropFilter = 'blur(5px)';
+            } else {
+                nav.style.background = '#8b4513';
+                nav.style.backdropFilter = 'none';
+            }
+        });
+
+        // Add animation to popular items
+        document.querySelectorAll('.popular-badge').forEach(badge => {
+            setInterval(() => {
+                badge.style.animation = 'pulse 1s ease-in-out';
+                setTimeout(() => {
+                    badge.style.animation = '';
+                }, 1000);
+            }, 3000);
+        });
+    </script>
+</body>
+</html>
